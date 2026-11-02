@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* Light mode only: the blue-and-white theme from the requirements (Section 10). */
+:root {
+  color-scheme: light;
+  --color-brand-50: #eff6ff;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-900: #1e3a8a;
+}
+
+html,
+body {
+  background-color: #f0f7ff;
+  color: #0f172a;
+}
+
+/* Long words, emails and addresses must wrap instead of forcing sideways scrolling. */
+body {
+  overflow-wrap: anywhere;
+}
+
+:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
