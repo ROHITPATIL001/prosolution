@@ -27,6 +27,7 @@ import {
   Megaphone,
   Star,
   Menu,
+  Sparkles,
 } from 'lucide-react';
 
 type NavItem = {
@@ -85,23 +86,23 @@ export async function AppShell({ user, children }: { user: SessionUser | null; c
   const items = NAV[user.role];
 
   return (
-    <div className="min-h-screen bg-slate-50/70 pb-20 sm:pb-0">
-      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
+    <div className="min-h-screen bg-[#F6F4FA] pb-20 sm:pb-0">
+      <header className="sticky top-0 z-40 border-b border-[#ADBBDA]/60 bg-white/90 backdrop-blur-md shadow-[0_4px_20px_-10px_rgba(61,82,160,0.05)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5">
           {/* Logo */}
           <Link
             href={home}
-            className="flex items-center gap-2.5 rounded-xl transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+            className="flex items-center gap-2.5 rounded-xl transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7091E6]"
           >
             <span
               aria-hidden="true"
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 text-sm font-black text-white shadow-xs"
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#3D52A0] to-[#7091E6] text-sm font-black text-white shadow-xs shadow-[#3D52A0]/20"
             >
               PS
             </span>
             <div className="flex flex-col">
-              <span className="text-lg font-black tracking-tight text-blue-900 leading-tight">ProSolution</span>
-              <span className="text-[10px] font-semibold text-slate-400 tracking-wide uppercase">Marketplace</span>
+              <span className="text-lg font-black tracking-tight text-[#3D52A0] leading-tight">ProSolution</span>
+              <span className="text-[10px] font-semibold text-[#8697C4] tracking-wide uppercase">Marketplace</span>
             </div>
           </Link>
 
@@ -113,9 +114,9 @@ export async function AppShell({ user, children }: { user: SessionUser | null; c
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-blue-900"
+                  className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-semibold text-[#3D52A0]/80 transition hover:bg-[#EDE8F5] hover:text-[#3D52A0]"
                 >
-                  <Icon className="h-4 w-4 text-slate-500" />
+                  <Icon className="h-4 w-4 text-[#8697C4]" />
                   <span>{item.label}</span>
                 </Link>
               );
@@ -124,6 +125,15 @@ export async function AppShell({ user, children }: { user: SessionUser | null; c
 
           {/* Right Header Actions */}
           <div className="flex items-center gap-2">
+            <Link
+              href="/about"
+              className="hidden sm:flex items-center gap-1.5 rounded-xl border border-[#ADBBDA] bg-[#EDE8F5]/90 px-3 py-2 text-xs font-bold text-[#3D52A0] transition hover:bg-[#ADBBDA]/40 hover:shadow-xs shadow-[0_2px_8px_-2px_rgba(61,82,160,0.1)]"
+              title="About ProSolution: Architecture & Strategic Blueprint"
+            >
+              <Sparkles className="h-3.5 w-3.5 text-[#7091E6]" />
+              <span>About ProSolution</span>
+            </Link>
+
             <Link
               href="/notifications"
               className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 hover:text-blue-700 shadow-xs"
@@ -169,6 +179,13 @@ export async function AppShell({ user, children }: { user: SessionUser | null; c
                       </Link>
                     );
                   })}
+                  <Link
+                    href="/about"
+                    className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-bold text-blue-900 bg-blue-50/60 transition hover:bg-blue-100 mt-1"
+                  >
+                    <Sparkles className="h-4 w-4 text-blue-600" />
+                    <span>About ProSolution & Strategy</span>
+                  </Link>
                 </nav>
 
                 <form action={logoutAction} className="border-t border-slate-100 pt-2">
@@ -211,7 +228,18 @@ export async function AppShell({ user, children }: { user: SessionUser | null; c
 
       {/* Footer */}
       <footer className="mx-auto max-w-6xl px-4 pb-12 pt-6 text-center text-xs text-slate-500">
-        <p className="font-medium text-slate-600">ProSolution · Mobile-First Local Services Marketplace</p>
+        <p className="font-semibold text-slate-700">
+          ProSolution · Mobile-First Local Services Marketplace
+        </p>
+        <p className="mt-1">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-1 font-bold text-blue-700 hover:text-blue-900 underline underline-offset-2"
+          >
+            <span>Explore About ProSolution & Strategic Blueprint</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </p>
         <p className="mt-1 text-slate-400">
           Academic prototype. Verification confirms document submission review, not legal certification.
         </p>

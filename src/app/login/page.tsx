@@ -19,6 +19,15 @@ export default async function LoginPage({
       <div className="mb-6 text-center">
         <h1 className="text-3xl font-bold text-blue-900">Sign in to ProSolution</h1>
         <p className="mt-2 text-slate-600">Find trusted local providers and compare quotations transparently.</p>
+        <div className="mt-3">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-bold text-blue-800 transition hover:bg-blue-100 shadow-xs"
+          >
+            <span>🏢 Explore About ProSolution: Business Architecture & Strategy</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </div>
 
       <Card>

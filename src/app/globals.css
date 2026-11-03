@@ -1,32 +1,122 @@
 @import "tailwindcss";
 
-/* Light mode only: the blue-and-white theme from the requirements (Section 10). */
+/* Design System - Inspired by Shopify Foundations Palette */
 :root {
   color-scheme: light;
-  --color-brand-50: #eff6ff;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-brand-900: #1e3a8a;
+  --palette-deep: #3D52A0;       /* Deep Indigo / Royal Navy */
+  --palette-primary: #7091E6;    /* Vibrant Periwinkle / Sky */
+  --palette-muted: #8697C4;      /* Steel Slate Lavender */
+  --palette-mist: #ADBBDA;       /* Soft Powder Mist */
+  --palette-surface: #EDE8F5;    /* Porcelain Lavender Base */
+  --palette-surface-soft: #F6F4FA;
 }
 
 html,
 body {
-  background-color: #f0f7ff;
-  color: #0f172a;
+  background-color: #F6F4FA;
+  color: #1E2749;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Long words, emails and addresses must wrap instead of forcing sideways scrolling. */
+/* Text wrap safety */
 body {
   overflow-wrap: anywhere;
 }
 
 :focus-visible {
-  outline: 2px solid #60a5fa;
+  outline: 2px solid #7091E6;
   outline-offset: 2px;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shimmerGlow {
+  0%, 100% {
+    box-shadow: 0 10px 30px -10px rgba(112, 145, 230, 0.25);
+  }
+  50% {
+    box-shadow: 0 16px 36px -10px rgba(61, 82, 160, 0.35);
+  }
+}
+
+.animate-fade-scale {
+  animation: fadeInScale 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: shimmerGlow 3s ease-in-out infinite;
+}
+
+.glass-surface {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(173, 187, 218, 0.4);
+}
+
+.glass-surface-dark {
+  background: rgba(61, 82, 160, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(112, 145, 230, 0.3);
+}
+
+.shadow-foundation {
+  box-shadow: 0 20px 40px -15px rgba(61, 82, 160, 0.08), 0 0 1px 1px rgba(173, 187, 218, 0.3);
+}
+
+.shadow-foundation-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shadow-foundation-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 25px 50px -15px rgba(61, 82, 160, 0.16), 0 0 1px 1px rgba(112, 145, 230, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

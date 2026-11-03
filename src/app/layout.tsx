@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#1d4ed8',
+  themeColor: '#3D52A0',
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const user = await getCurrentUser();
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen overflow-x-hidden bg-blue-50/40 text-slate-900 antialiased">
+      <body className="min-h-screen overflow-x-hidden bg-[#F6F4FA] text-[#1E2749] antialiased">
         <AppShell user={user}>{children}</AppShell>
       </body>
     </html>
